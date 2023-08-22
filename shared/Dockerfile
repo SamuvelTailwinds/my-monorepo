@@ -1,0 +1,10 @@
+FROM python:3.8-alpine
+RUN mkdir /shared
+WORKDIR /app
+#COPY requirement.txt requirement.txt
+#RUN pip install -r requirement.txt
+# Copy the source from the current directory to the Working Directory inside the container
+COPY . .
+EXPOSE 5000
+# Run the executable
+CMD ["python", "shared_utils.py"]
