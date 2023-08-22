@@ -2,7 +2,7 @@
 FROM python:3.9
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /shared
 
 # Copy the requirements.txt file into the container
 COPY requirements.txt .
@@ -18,4 +18,4 @@ COPY shared shared
 EXPOSE 5000
 
 # Define the command to run when the container starts
-CMD ["python", "app/main.py"]
+CMD ["python", "shared/shared_utils.py"]
