@@ -12,7 +12,7 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # Copy the application code into the container
-COPY ..
+COPY . .
 
 # Expose the port that Flask will run on
 EXPOSE 5000
