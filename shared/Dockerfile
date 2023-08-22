@@ -1,10 +1,21 @@
-FROM python:3.8-alpine
-RUN mkdir /shared
+# Use the official Python image as a base image
+FROM python:3.9
+
+# Set the working directory inside the container
 WORKDIR /app
-#COPY requirement.txt requirement.txt
-#RUN pip install -r requirement.txt
-# Copy the source from the current directory to the Working Directory inside the container
-COPY . .
+
+# Copy the requirements.txt file into the container
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install -r requirements.txt
+
+# Copy the application code into the container
+COPY app app
+COPY shared shared
+
+# Expose the port that Flask will run on
 EXPOSE 5000
-# Run the executable
-CMD ["python", "shared_utils.py"]
+
+# Define the command to run when the container starts
+CMD ["python", "app/main.py"]
